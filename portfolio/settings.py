@@ -27,8 +27,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret")
 # DEBUG = os.environ.get("DEBUG", "False") == "True"
 DEBUG = True
 
-# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
