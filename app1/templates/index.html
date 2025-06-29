@@ -32,7 +32,7 @@
 </head>
 
 
-<body class="index-page">
+<body class="index-page" style="zoom: 100%;">
 
   <header id="header" class="header d-flex flex-column justify-content-center">
 
@@ -280,25 +280,34 @@
     <section id="resume" class="resume section">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <!-- <a href="assets/resume.pdf" target="_blank" class="btn btn-primary" 
-            style="margin: 10px; background-color: #1d3c1f; border-color: #dad70f; color: rgb(255, 255, 255);">
-              Download Resume (PDF)
-        </a> -->
-  
-          <h2>
-            <details>
-              <summary>Resume: Click to view/download</summary>
-              <iframe 
-                src="static/others/CV%20Padrigon,%20Lynbert.pdf" 
-                width="80%" 
-                height="750px" 
-                style="border: none; margin-top: 10px;">
-              </iframe>
-            </details>
-          </h2>
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Resume</h2>
 
-      </div>
+        <details style="margin-top: 1rem;">
+          <summary style="cursor: pointer; font-weight: 600;">
+            Click to view resume
+          </summary>
+
+          <!-- Desktop PDF Viewer -->
+          <iframe 
+            id="resume-pdf"
+            src="static/others/CV%20Padrigon,%20Lynbert.pdf" 
+            width="100%" 
+            height="750px" 
+            style="border: none; margin-top: 15px;">
+          </iframe>
+
+          <!-- Mobile fallback download -->
+          <div id="resume-download" style="display: none; margin-top: 15px;">
+            <a 
+              href="static/others/CV%20Padrigon,%20Lynbert.pdf" 
+              download 
+              class="btn btn-primary"
+              style="background-color: #1d3c1f; border-color: #dad70f; color: white;">
+              Download Resume (PDF)
+            </a>
+          </div>
+        </details>
       <!-- End Section Title -->
 
       <div class="container">
@@ -352,6 +361,14 @@
         </div>
 
       </div>
+
+        <!-- JS for Mobile Handling -->
+          <script>
+            if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+              document.getElementById('resume-pdf').style.display = 'none';
+              document.getElementById('resume-download').style.display = 'block';
+            }
+          </script>
 
     </section>
     <!-- /Resume Section -->
